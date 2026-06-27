@@ -1,16 +1,117 @@
-# React + Vite
+# ✅ To-Do List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean, minimal **To-Do List** web application built with **React 19** and **Vite**, styled using **Tailwind CSS**. Tasks are persisted in the browser's **localStorage**, so they survive page refreshes.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+- ➕ **Add Tasks** — Type a task and click **Add +** (or press Enter)
+- ✔️ **Complete Tasks** — Click a task to toggle its completion state
+- 🗑️ **Delete Tasks** — Remove individual tasks with the delete icon
+- 💾 **Persistent Storage** — All tasks are saved to `localStorage` automatically
+- ⚡ **Blazing Fast** — Powered by Vite's instant HMR dev server
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Technology | Purpose |
+|---|---|
+| [React](https://react.dev/) | UI library |
+| [Vite](https://vitejs.dev/) | Build tool & dev server |
+| [Tailwind CSS](https://tailwindcss.com/) | Utility-first styling |
+| [ESLint](https://eslint.org/) | Code linting |
+
+---
+
+## 📁 Project Structure
+
+```
+todo/
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── assets/
+│   │   ├── todo_icon.png
+│   │   ├── tick.png
+│   │   ├── not_tick.png
+│   │   └── delete.png
+│   ├── components/
+│   │   ├── Todo.jsx        # Main container — input, state, localStorage logic
+│   │   └── TodoItem.jsx    # Individual todo row with toggle & delete
+│   ├── App.jsx             # Root component
+│   ├── main.jsx            # React DOM entry point
+│   └── index.css           # Global styles
+├── index.html
+├── vite.config.js
+├── tailwind.config.js
+├── postcss.config.js
+├── eslint.config.js
+└── package.json
+```
+
+---
+
+## ⚙️ Getting Started
+
+### Prerequisites
+
+- **Node.js** v18 or higher
+- **npm** v9 or higher
+
+### Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/NihalSinghrana809/Todos.git
+cd todo
+
+# 2. Install dependencies
+npm install
+
+# 3. Start the development server
+npm run dev
+```
+
+The app will be available at **http://localhost:5173** by default.
+
+---
+
+## 📜 Available Scripts
+
+| Script | Command | Description |
+|---|---|---|
+| Dev Server | `npm run dev` | Start Vite development server with HMR |
+| Build | `npm run build` | Build optimized production bundle to `dist/` |
+| Preview | `npm run preview` | Preview the production build locally |
+| Lint | `npm run lint` | Run ESLint across the source files |
+
+---
+
+## 🧩 Component Overview
+
+### `Todo.jsx`
+The core component that manages all application state:
+- Holds `todoList` state, initialized from `localStorage`
+- Exposes `add`, `deleteTodo`, and `toggle` handlers passed down as props
+- Uses `useEffect` to sync state changes back to `localStorage`
+
+### `TodoItem.jsx`
+A stateless presentational component representing a single task row:
+- Displays the task text with a strikethrough style when completed
+- Shows a **tick** or **not-tick** icon based on completion status
+- Includes a delete icon to remove the task
+
+---
+
+## 🙌 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+1. Fork the repository
+2. Create your feature branch: `git checkout -b feature/my-feature`
+3. Commit your changes: `git commit -m 'Add my feature'`
+4. Push to the branch: `git push origin feature/my-feature`
+5. Open a Pull Request
+
